@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Board — NAME Musical Company</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  .board-list { margin-top: 0; }
+
+  .board-item {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid rgba(245,240,232,0.07);
+    cursor: pointer;
+    transition: padding-left 0.3s, background 0.2s;
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeUp 0.5s forwards;
+  }
+
+  .board-item:nth-child(1) { animation-delay: 0.35s; }
+  .board-item:nth-child(2) { animation-delay: 0.42s; }
+  .board-item:nth-child(3) { animation-delay: 0.49s; }
+  .board-item:nth-child(4) { animation-delay: 0.56s; }
+  .board-item:nth-child(5) { animation-delay: 0.63s; }
+  .board-item:nth-child(6) { animation-delay: 0.70s; }
+
+  .board-item:hover { padding-left: 0.6rem; background: rgba(204,0,0,0.04); }
+
+  .board-num {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--crimson);
+    letter-spacing: 0.2em;
+  }
+
+  .board-title-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: rgba(245,240,232,0.8);
+    transition: color 0.2s;
+  }
+
+  .board-item:hover .board-title-text { color: var(--off-white); }
+
+  .board-date {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .board-tag {
+    display: inline-block;
+    background: rgba(204,0,0,0.12);
+    border: 0.5px solid rgba(204,0,0,0.4);
+    color: var(--crimson-light);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 1px;
+    margin-left: 0.8rem;
+    vertical-align: middle;
+  }
+
+  .board-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.5s 0.8s forwards;
+  }
+
+  .write-btn {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    border: 0.5px solid rgba(204,0,0,0.4);
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s;
+    border-radius: 1px;
+  }
+
+  .write-btn:hover {
+    background: rgba(204,0,0,0.08);
+    border-color: var(--crimson-light);
+  }
+
+  @media (max-width: 600px) {
+    .board-item { grid-template-columns: 50px 1fr; }
+    .board-date { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">NAME</a>
+    <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="works.html">Works</a></li>
+    <li><a href="board.html" class="active">Board</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="red-bar"></div>
+
+<div class="page-header">
+  <p class="section-label">Notice Board</p>
+  <h1 class="section-title">Board</h1>
+  <div class="section-divider"></div>
+</div>
+
+<div class="page-content">
+  <div class="board-list">
+    <div class="board-item">
+      <span class="board-num">001</span>
+      <span class="board-title-text">2025년 신작 뮤지컬 오디션 공고<span class="board-tag">공지</span></span>
+      <span class="board-date">2025.04.10</span>
+    </div>
+    <div class="board-item">
+      <span class="board-num">002</span>
+      <span class="board-title-text">〈작품명 I〉 앙코르 공연 티켓 오픈 안내<span class="board-tag">공지</span></span>
+      <span class="board-date">2025.03.28</span>
+    </div>
+    <div class="board-item">
+      <span class="board-num">003</span>
+      <span class="board-title-text">NAME 창립 15주년 기념 행사 개최</span>
+      <span class="board-date">2025.03.15</span>
+    </div>
+    <div class="board-item">
+      <span class="board-num">004</span>
+      <span class="board-title-text">2025 뮤지컬 시즌 라인업 발표</span>
+      <span class="board-date">2025.02.20</span>
+    </div>
+    <div class="board-item">
+      <span class="board-num">005</span>
+      <span class="board-title-text">해외 공동제작 협약 체결 소식<span class="board-tag">뉴스</span></span>
+      <span class="board-date">2025.01.30</span>
+    </div>
+    <div class="board-item">
+      <span class="board-num">006</span>
+      <span class="board-title-text">스태프 채용 공고 — 무대 디자이너 모집<span class="board-tag">채용</span></span>
+      <span class="board-date">2025.01.12</span>
+    </div>
+  </div>
+
+  <div class="board-actions">
+    <button class="write-btn">더보기 →</button>
+  </div>
+</div>
+
+<div class="red-bar"></div>
+<footer>
+  <div class="footer-logo">NAME</div>
+  <p class="footer-text">© 2025 NAME Musical Company. All rights reserved.</p>
+  <p class="footer-text" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">Be a star, and it's our time.</p>
+</footer>
+
+</body>
+</html>

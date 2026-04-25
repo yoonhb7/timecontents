@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — NAME Musical Company</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  .works-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+    border-bottom: 0.5px solid rgba(204,0,0,0.2);
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s forwards;
+  }
+
+  .works-tab {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.8rem 2.5rem 0.8rem 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: -0.5px;
+  }
+
+  .works-tab.active { color: var(--off-white); border-bottom-color: var(--crimson-light); }
+  .works-tab:hover { color: rgba(245,240,232,0.75); }
+
+  .tab-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .upcoming-dot { background: var(--crimson-light); box-shadow: 0 0 8px var(--crimson-light); }
+  .past-dot { background: rgba(245,240,232,0.3); }
+
+  .works-panel { animation: fadeUp 0.4s ease forwards; }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    position: relative;
+    background: var(--dark2);
+    border: 0.5px solid rgba(204,0,0,0.18);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .work-img {
+    width: 100%;
+    height: 300px;
+    background: #0e0909;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 0.5px solid rgba(204,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+  }
+
+  .work-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(204,0,0,0.07) 0%, transparent 60%);
+  }
+
+  .work-card:hover .work-img { transform: scale(1.02); }
+
+  .img-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.18);
+  }
+
+  .img-icon {
+    width: 52px; height: 52px;
+    border: 1px solid rgba(204,0,0,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .work-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(204,0,0,0.0);
+    transition: background 0.3s;
+    pointer-events: none;
+  }
+
+  .work-card:hover .work-overlay { background: rgba(204,0,0,0.05); }
+
+  .work-info { padding: 1.5rem; }
+
+  .work-year {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--crimson-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .work-title {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    color: var(--off-white);
+    margin-bottom: 0.6rem;
+  }
+
+  .work-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* Upcoming */
+  .upcoming-card { border-color: rgba(204,0,0,0.3); }
+
+  .upcoming-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(204,0,0,0.9);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 1px;
+    z-index: 2;
+  }
+
+  @media (max-width: 900px) {
+    .works-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .works-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">NAME</a>
+    <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="works.html" class="active">Works</a></li>
+    <li><a href="board.html">Board</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="red-bar"></div>
+
+<div class="page-header">
+  <p class="section-label">Productions</p>
+  <h1 class="section-title">Our Works</h1>
+  <div class="section-divider"></div>
+</div>
+
+<div class="page-content">
+
+  <div class="works-tabs">
+    <button class="works-tab active" onclick="switchTab('upcoming', this)">
+      <span class="tab-dot upcoming-dot"></span>Upcoming
+    </button>
+    <button class="works-tab" onclick="switchTab('past', this)">
+      <span class="tab-dot past-dot"></span>Past Productions
+    </button>
+  </div>
+
+  <!-- UPCOMING -->
+  <div id="tab-upcoming" class="works-panel">
+    <div class="works-grid">
+      <div class="work-card upcoming-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <!-- 포스터: <img src="poster_a.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+          <div class="upcoming-badge">Coming Soon</div>
+          <div class="img-icon">🎭</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2025 · 예정</p>
+          <h3 class="work-title">작품명 A</h3>
+          <p class="work-desc">준비 중인 신작 창작 뮤지컬. 세종문화회관 대극장 예정.</p>
+        </div>
+      </div>
+      <div class="work-card upcoming-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="upcoming-badge">Coming Soon</div>
+          <div class="img-icon">🎶</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2025 · 예정</p>
+          <h3 class="work-title">작품명 B</h3>
+          <p class="work-desc">해외 라이선스 신작. 브로드웨이 수상작의 한국 초연.</p>
+        </div>
+      </div>
+      <div class="work-card upcoming-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="upcoming-badge">In Production</div>
+          <div class="img-icon">✨</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2025 · 제작 중</p>
+          <h3 class="work-title">작품명 C</h3>
+          <p class="work-desc">현재 제작 진행 중인 창작 소극장 뮤지컬.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST -->
+  <div id="tab-past" class="works-panel" style="display:none;">
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🌹</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2024</p>
+          <h3 class="work-title">작품명 I</h3>
+          <p class="work-desc">감동적인 사랑 이야기를 담은 창작 뮤지컬. 세종문화회관 대극장 초연.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🎪</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2023</p>
+          <h3 class="work-title">작품명 II</h3>
+          <p class="work-desc">역사적 배경의 대서사 뮤지컬. 국립극장 해오름극장 공연.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🎼</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2023</p>
+          <h3 class="work-title">작품명 III</h3>
+          <p class="work-desc">현대적 감성의 소극장 뮤지컬. 대학로 씨어터 장기 공연.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🎭</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2022</p>
+          <h3 class="work-title">작품명 IV</h3>
+          <p class="work-desc">브로드웨이 원작의 한국어 라이선스 프로덕션.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🎶</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2022</p>
+          <h3 class="work-title">작품명 V</h3>
+          <p class="work-desc">가족을 위한 판타지 뮤지컬. 전국 투어 성황리 마감.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-overlay"></div>
+        <div class="work-img">
+          <div class="img-icon">🎵</div>
+          <span class="img-label">포스터 이미지</span>
+        </div>
+        <div class="work-info">
+          <p class="work-year">2021</p>
+          <h3 class="work-title">작품명 VI</h3>
+          <p class="work-desc">클래식 음악을 현대적으로 재해석한 창작 뮤지컬.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="red-bar"></div>
+<footer>
+  <div class="footer-logo">NAME</div>
+  <p class="footer-text">© 2025 NAME Musical Company. All rights reserved.</p>
+  <p class="footer-text" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">Be a star, and it's our time.</p>
+</footer>
+
+<script>
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.works-panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.works-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).style.display = 'block';
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

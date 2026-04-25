@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — NAME Musical Company</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3rem;
+  }
+
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.72);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: rgba(204,0,0,0.05);
+    border: 0.5px solid rgba(204,0,0,0.22);
+    border-left: 2px solid var(--crimson);
+    padding: 1.5rem 1.8rem;
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s forwards;
+  }
+
+  .info-card:nth-child(1) { animation-delay: 0.35s; }
+  .info-card:nth-child(2) { animation-delay: 0.45s; }
+  .info-card:nth-child(3) { animation-delay: 0.55s; }
+  .info-card:nth-child(4) { animation-delay: 0.65s; }
+
+  .info-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .info-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.6;
+  }
+
+  .ceo-block {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.8rem;
+    background: rgba(204,0,0,0.04);
+    border: 0.5px solid rgba(204,0,0,0.18);
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .photo-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--dark2);
+    border: 1px solid rgba(204,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .photo-placeholder img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--dark2);
+    border: 0.5px solid rgba(204,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0;
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.75s forwards;
+  }
+
+  .map-placeholder p {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .about-body-anim {
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s forwards;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">NAME</a>
+    <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="works.html">Works</a></li>
+    <li><a href="board.html">Board</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="red-bar"></div>
+
+<div class="page-header">
+  <p class="section-label">About Us</p>
+  <h1 class="section-title">Our Story</h1>
+  <div class="section-divider"></div>
+</div>
+
+<div class="page-content">
+  <div class="about-grid">
+    <div class="about-text about-body-anim">
+      <p>NAME은 무대 위의 모든 순간을 예술로 승화시키는 뮤지컬 제작사입니다. 탁월한 스토리텔링과 세계 최정상급의 퍼포먼스로 관객들에게 잊지 못할 감동을 선사합니다.</p>
+      <p>창의적인 상상력과 철저한 완성도로 매 작품을 만들어가며, 한국 뮤지컬의 새로운 지평을 열어가고 있습니다.</p>
+      <p>우리는 무대 예술이 사람들의 마음을 움직이고, 세상을 더 아름답게 만들 수 있다고 믿습니다. 매 공연이 끝난 뒤 관객의 눈빛에서 그 믿음을 확인합니다.</p>
+
+      <div class="ceo-block">
+        <div class="photo-placeholder">
+          <!-- 사진: <img src="ceo.jpg"> -->
+          <span>CEO<br>사진</span>
+        </div>
+        <div>
+          <p style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:0.1em;color:var(--off-white);margin-bottom:4px;">홍길동 대표</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--crimson-light);font-style:italic;margin-bottom:8px;">Founder &amp; Artistic Director</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(245,240,232,0.55);line-height:1.7;">뮤지컬 업계 20년 경력, 대한민국 뮤지컬어워즈 수상.<br>국내외 40여 편의 작품을 제작·연출.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-info">
+      <div class="info-card">
+        <h3>Location</h3>
+        <p>서울특별시 강남구 테헤란로 123<br>NAME 빌딩 5층</p>
+      </div>
+      <div class="info-card">
+        <h3>Founded</h3>
+        <p>2010년 설립<br>15년의 뮤지컬 제작 역사</p>
+      </div>
+      <div class="info-card">
+        <h3>Directors</h3>
+        <p>홍길동 (대표이사)<br>김예술 (예술감독)</p>
+      </div>
+      <div class="info-card">
+        <h3>Productions</h3>
+        <p>국내 창작 뮤지컬 30편 이상<br>해외 라이선스 작품 15편</p>
+      </div>
+
+      <div class="map-placeholder">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(204,0,0,0.6)" stroke-width="1.5">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <p>지도를 여기에 삽입할 수 있습니다</p>
+        <p style="font-size:9px;color:rgba(245,240,232,0.18);">Google Maps embed 가능</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="red-bar"></div>
+<footer>
+  <div class="footer-logo">NAME</div>
+  <p class="footer-text">© 2025 NAME Musical Company. All rights reserved.</p>
+  <p class="footer-text" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">Be a star, and it's our time.</p>
+</footer>
+
+</body>
+</html>
