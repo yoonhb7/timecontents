@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Raleway:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Raleway:wght@200;300;400;500&family=Nanum+Gothic:wght@400;700&display=swap');
 
 *,
 *::before,
@@ -26,7 +26,7 @@ html {
 body {
     background: var(--black);
     color: var(--off-white);
-    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
     overflow-x: hidden;
 }
 
@@ -48,7 +48,7 @@ nav {
 }
 
 .nav-logo {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', 'Nanum Gothic', serif;
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0.25em;
@@ -64,7 +64,7 @@ nav {
 }
 
 .nav-links a {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', 'Nanum Gothic', sans-serif;
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 0.22em;
@@ -111,7 +111,7 @@ nav {
 }
 
 .section-label {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', 'Nanum Gothic', sans-serif;
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 0.4em;
@@ -123,7 +123,7 @@ nav {
 }
 
 .section-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', 'Nanum Gothic', serif;
     font-size: clamp(36px, 5vw, 64px);
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -165,7 +165,7 @@ footer {
 }
 
 .footer-logo {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', 'Nanum Gothic', serif;
     font-size: 16px;
     letter-spacing: 0.3em;
     color: var(--crimson-light);
