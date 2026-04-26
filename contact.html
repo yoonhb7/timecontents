@@ -1,244 +1,234 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — TIME Musical Company</title>
-<link rel="stylesheet" href="shared.css">
-<style>
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — TIME Musical Company</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+        }
 
-  .contact-info h3 {
-    font-family: 'Cinzel', 'Nanum Gothic', serif;
-    font-size: 12px;
-    letter-spacing: 0.35em;
-    color: var(--crimson-light);
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.35s forwards;
-  }
+        .contact-info h3 {
+            font-family: 'Cinzel', 'Nanum Gothic', serif;
+            font-size: 12px;
+            letter-spacing: 0.35em;
+            color: var(--crimson-light);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.35s forwards;
+        }
 
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+        .contact-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
-  .contact-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: 1.2rem 0;
-    border-bottom: 0.5px solid rgba(245,240,232,0.06);
-    opacity: 0;
-    animation: fadeUp 0.6s forwards;
-  }
+        .contact-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 1.2rem 0;
+            border-bottom: 0.5px solid rgba(245, 240, 232, 0.06);
+            opacity: 0;
+            animation: fadeUp 0.6s forwards;
+        }
 
-  .contact-row:nth-child(1) { animation-delay: 0.4s; }
-  .contact-row:nth-child(2) { animation-delay: 0.48s; }
-  .contact-row:nth-child(3) { animation-delay: 0.56s; }
-  .contact-row:nth-child(4) { animation-delay: 0.64s; }
-  .contact-row:nth-child(5) { animation-delay: 0.72s; }
+        .contact-row:nth-child(1) {
+            animation-delay: 0.4s;
+        }
 
-  .contact-row label {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--crimson-light);
-  }
+        .contact-row:nth-child(2) {
+            animation-delay: 0.48s;
+        }
 
-  .contact-row span {
-    font-family: 'Cormorant Garamond', 'Nanum Gothic', serif;
-    font-size: 19px;
-    color: rgba(245,240,232,0.8);
-    line-height: 1.5;
-  }
+        .contact-row:nth-child(3) {
+            animation-delay: 0.56s;
+        }
 
-  /* Form */
-  .form-col h3 {
-    font-family: 'Cinzel', 'Nanum Gothic', serif;
-    font-size: 12px;
-    letter-spacing: 0.35em;
-    color: var(--crimson-light);
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.35s forwards;
-  }
+        .contact-row:nth-child(4) {
+            animation-delay: 0.64s;
+        }
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.45s forwards;
-  }
+        .contact-row:nth-child(5) {
+            animation-delay: 0.72s;
+        }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+        .contact-row label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--crimson-light);
+        }
 
-  .form-group label {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+        .contact-row span {
+            font-family: 'Cormorant Garamond', 'Nanum Gothic', serif;
+            font-size: 19px;
+            color: rgba(245, 240, 232, 0.8);
+            line-height: 1.5;
+        }
 
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: rgba(245,240,232,0.03);
-    border: 0.5px solid rgba(204,0,0,0.28);
-    color: var(--off-white);
-    font-family: 'Cormorant Garamond', 'Nanum Gothic', serif;
-    font-size: 18px;
-    padding: 0.8rem 1rem;
-    outline: none;
-    transition: border-color 0.3s, background 0.3s;
-    border-radius: 0;
-    appearance: none;
-    width: 100%;
-  }
+        /* Form */
+        .form-col h3 {
+            font-family: 'Cinzel', 'Nanum Gothic', serif;
+            font-size: 12px;
+            letter-spacing: 0.35em;
+            color: var(--crimson-light);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.35s forwards;
+        }
 
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    border-color: var(--crimson-light);
-    background: rgba(204,0,0,0.04);
-  }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.45s forwards;
+        }
 
-  .form-group textarea { resize: vertical; min-height: 130px; }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-  .submit-btn {
-    font-family: 'Raleway', 'Nanum Gothic', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--off-white);
-    background: var(--crimson);
-    border: none;
-    padding: 1rem 2.5rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    align-self: flex-start;
-    border-radius: 1px;
-  }
+        .form-group label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
 
-  .submit-btn:hover { background: var(--crimson-bright); }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: rgba(245, 240, 232, 0.03);
+            border: 0.5px solid rgba(204, 0, 0, 0.28);
+            color: var(--off-white);
+            font-family: 'Cormorant Garamond', 'Nanum Gothic', serif;
+            font-size: 18px;
+            padding: 0.8rem 1rem;
+            outline: none;
+            transition: border-color 0.3s, background 0.3s;
+            border-radius: 0;
+            appearance: none;
+            width: 100%;
+        }
 
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  }
-</style>
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--crimson-light);
+            background: rgba(204, 0, 0, 0.04);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .submit-btn {
+            font-family: 'Raleway', 'Nanum Gothic', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--off-white);
+            background: var(--crimson);
+            border: none;
+            padding: 1rem 2.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+            border-radius: 1px;
+        }
+
+        .submit-btn:hover {
+            background: var(--crimson-bright);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<nav>
-  <a class="nav-logo" href="index.html"><img src="logo.png" alt="TIME" style="height:90px;vertical-align:middle;"></a>
-    <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="works.html">Works</a></li>
-    <li><a href="board.html">Board</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-  </ul>
-</nav>
+    <nav>
+        <a class="nav-logo" href="index.html"><img src="logo.png" alt="TIME"
+                style="height:90px;vertical-align:middle;"></a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="works.html">Works</a></li>
+            <li><a href="board.html">Board</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
 
-<div class="red-bar"></div>
+    <div class="red-bar"></div>
 
-<div class="page-header">
-  <p class="section-label">Get in Touch</p>
-  <h1 class="section-title">Contact</h1>
-  <div class="section-divider"></div>
-</div>
-
-<div class="page-content">
-  <div class="contact-grid">
-
-    <div class="contact-info">
-      <h3>Contact Information</h3>
-      <div class="contact-detail">
-        <div class="contact-row">
-          <label>Address</label>
-          <span>서울특별시 강남구 테헤란로 123<br>TIME 빌딩 5층</span>
-        </div>
-        <div class="contact-row">
-          <label>Phone</label>
-          <span>02-000-0000</span>
-        </div>
-        <div class="contact-row">
-          <label>Email</label>
-          <span>info@name-musical.com</span>
-        </div>
-        <div class="contact-row">
-          <label>Business Hours</label>
-          <span>월–금 09:00 – 18:00</span>
-        </div>
-        <div class="contact-row">
-          <label>SNS</label>
-          <span>@name_musical</span>
-        </div>
-      </div>
+    <div class="page-header">
+        <p class="section-label">Get in Touch</p>
+        <h1 class="section-title">Contact</h1>
+        <div class="section-divider"></div>
     </div>
 
-    <div class="form-col">
-      <h3>Send a Message</h3>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="성함을 입력해주세요">
+    <div class="page-content">
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-detail">
+                    <div class="contact-row">
+                        <label>Address</label>
+                        <span>서울특별시 강남구 언주로 603<br>서진빌딩 4층</span>
+                    </div>
+                    <div class="contact-row">
+                        <label>Phone</label>
+                        <span>02-518-8008</span>
+                    </div>
+                    <div class="contact-row">
+                        <label>Email</label>
+                        <span>##########</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="이메일 주소">
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <select>
-            <option value="" style="background:#0d0d0d;">문의 유형 선택</option>
-            <option value="casting" style="background:#0d0d0d;">캐스팅 / 오디션</option>
-            <option value="sponsor" style="background:#0d0d0d;">후원 / 협찬</option>
-            <option value="media" style="background:#0d0d0d;">미디어 / 취재</option>
-            <option value="other" style="background:#0d0d0d;">기타 문의</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="문의 내용을 입력해주세요"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send Message →</button>
-      </form>
     </div>
 
-  </div>
-</div>
+    <div class="red-bar"></div>
+    <footer>
+        <div class="footer-logo"><img src="logo.png" alt="TIME" style="height:88px;vertical-align:middle;"></div>
+        <p class="footer-text">© 2025 TIME Musical Company. All rights reserved.</p>
+        <p class="footer-text"
+            style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">
+            Be a star, and it's our time.</p>
+    </footer>
 
-<div class="red-bar"></div>
-<footer>
-  <div class="footer-logo"><img src="logo.png" alt="TIME" style="height:88px;vertical-align:middle;"></div>
-  <p class="footer-text">© 2025 TIME Musical Company. All rights reserved.</p>
-  <p class="footer-text" style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">Be a star, and it's our time.</p>
-</footer>
-
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.submit-btn');
-    btn.textContent = 'Sent ✓';
-    btn.style.background = '#1a5c1a';
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = 'var(--crimson)';
-    }, 2500);
-  }
-</script>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.submit-btn');
+            btn.textContent = 'Sent ✓';
+            btn.style.background = '#1a5c1a';
+            setTimeout(() => {
+                btn.textContent = 'Send Message →';
+                btn.style.background = 'var(--crimson)';
+            }, 2500);
+        }
+    </script>
 </body>
+
 </html>
