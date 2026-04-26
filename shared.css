@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Raleway:wght@200;300;400;500&family=Nanum+Gothic:wght@400;700&display=swap');
 
+/* 숫자를 나눔고딕으로 강제 렌더링 */
+@font-face {
+    font-family: 'Cinzel';
+    src: url(https://fonts.gstatic.com/s/nanumgothic/v26/PN_3Rfi-oW3hYwmKDpxS7F_z_g.ttf) format('truetype');
+    unicode-range: U+0030-U+0039;
+}
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url(https://fonts.gstatic.com/s/nanumgothic/v26/PN_3Rfi-oW3hYwmKDpxS7F_z_g.ttf) format('truetype');
+    unicode-range: U+0030-U+0039;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(https://fonts.gstatic.com/s/nanumgothic/v26/PN_3Rfi-oW3hYwmKDpxS7F_z_g.ttf) format('truetype');
+    unicode-range: U+0030-U+0039;
+}
+
 *,
 *::before,
 *::after {
