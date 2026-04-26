@@ -210,23 +210,30 @@
                     <p>#############<br>###########</p>
                 </div>
 
-                <div
-                    style="width:100%; height:200px; border:0.5px solid rgba(204,0,0,0.2); border-radius:2px; overflow:hidden;">
-                    <iframe src="https://naver.me/xl05b6BZ" width="100%" height="100%" frameborder="0"
-                        allowfullscreen></iframe>
+                <div style="width:100%; border:0.5px solid rgba(204,0,0,0.2); border-radius:2px; overflow:hidden;">
+                    <div id="daumRoughmapContainer1777173411129" class="root_daum_roughmap root_daum_roughmap_landing">
+                    </div>
+                    <script charset="UTF-8" class="daum_roughmap_loader_script"
+                        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+                    <script charset="UTF-8">
+                        new daum.roughmap.Lander({
+                            "timestamp": "1777173411129",
+                            "key": "mqkb8swt6xh",
+                            "mapWidth": "640",
+                            "mapHeight": "360"
+                        }).render();
+                    </script>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="red-bar"></div>
-    <footer>
-        <div class="footer-logo"><img src="logo.png" alt="TIME" style="height:88px;vertical-align:middle;"></div>
-        <p class="footer-text">© 2025 TIME Musical Company. All rights reserved.</p>
-        <p class="footer-text"
-            style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">
-            Be a star, and it's our time.</p>
-    </footer>
+                <div class="red-bar"></div>
+                <footer>
+                    <div class="footer-logo"><img src="logo.png" alt="TIME" style="height:88px;vertical-align:middle;">
+                    </div>
+                    <p class="footer-text">© 2025 TIME Musical Company. All rights reserved.</p>
+                    <p class="footer-text"
+                        style="font-style:italic;font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(245,240,232,0.2);">
+                        Be a star, and it's our time.</p>
+                </footer>
 
 </body>
 
